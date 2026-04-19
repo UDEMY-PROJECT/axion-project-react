@@ -1,16 +1,39 @@
-//THIS MANAGES THE COURSE CARDS IN THE SKILL COURSES SECTION. 
-// IT ALSO MANAGES THE HOVER POPUP FEATURE OF THE COURSE CARDS.
-
-import { useState } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const CourseCard = ({ course }) => {
   const [hovered, setHovered] = useState(false);
+  const timeoutRef = useRef(null);
+
+  const { cart, addToCart, removeFromCart } = useContext(CartContext);
+
+  // Check if course is already in cart
+  const isInCart = cart.some((item) => item.id === course.id);
+
+  // ✅ HOVER HANDLERS
+  const handleEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setHovered(true);
+  };
+
+  const handleLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setHovered(false);
+    }, 180); // tweak between 150–220 if needed
+  };
+
+  // ✅ CLEANUP (good practice)
+  useEffect(() => {
+    return () => clearTimeout(timeoutRef.current);
+  }, []);
 
   return (
     <div
       style={styles.wrapper}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
     >
       {/* 👇 MAIN CARD */}
       <div style={styles.card}>
@@ -22,9 +45,7 @@ const CourseCard = ({ course }) => {
 
         <div style={styles.row}>
           <span style={styles.badge}>Bestseller</span>
-
           <span style={styles.rating}>⭐ {course.rating}</span>
-
           <span style={styles.students}>({course.students})</span>
         </div>
 
@@ -48,7 +69,13 @@ const CourseCard = ({ course }) => {
             <li>✔ Real-world use cases</li>
           </ul>
 
-          <button style={styles.popupBtn}>Add to cart</button>
+          {/* ✅ WORKING BUTTON */}
+          <button
+            style={styles.popupBtn}
+            onClick={() => isInCart ? removeFromCart(course.id) : addToCart(course)}
+          >
+            {isInCart ? "Remove from cart" : "Add to cart"}
+          </button>
         </div>
       )}
     </div>
@@ -60,6 +87,7 @@ export default CourseCard;
 const styles = {
   wrapper: {
     position: "relative",
+    
   },
 
   card: {
@@ -118,17 +146,18 @@ const styles = {
     marginTop: "5px",
   },
 
-  /* 🔥 POPUP STYLES */
+  /* POPUP STYLES */
   popup: {
-    position: "absolute",
-    top: "0",
-    left: "105%",
-    width: "260px",
-    background: "white",
-    borderRadius: "10px",
-    padding: "15px",
-    boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-    zIndex: 10,
+  position: "absolute",
+  top: "0",
+  left: "100%",   
+  marginLeft: "10px",
+  width: "260px",
+  background: "white",
+  borderRadius: "10px",
+  padding: "15px",
+  boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+  zIndex: 10,
   },
 
   popupMeta: {
