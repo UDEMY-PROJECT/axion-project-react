@@ -10,6 +10,8 @@ import FooterLinks from "./components/FooterLinks";
 import FooterBottom from "./components/FooterBottom";
 
 import Login from "./pages/Login"; 
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 const App = () => {
   const location = useLocation();
@@ -26,6 +28,8 @@ const App = () => {
         <Route path="/webdev" element={<WebDev />} />
         <Route path="/compare-plans" element={<ComparePlans />} />
         <Route path="/login" element={<Login />} /> 
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
 
       <FooterLinks />
