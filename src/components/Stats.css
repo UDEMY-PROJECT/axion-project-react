@@ -1,0 +1,32 @@
+/* NEW: This wrapper takes up the whole screen and holds the border */
+.stats-wrapper {
+  width: 100%;
+  border-bottom: 1px solid #d1d7dc; 
+  background-color: #ffffff;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1200px; /* Keeps the text from getting too wide */
+  margin: 0 auto;    /* Centers the content block */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.stat-box h2 {
+  font-size: 2rem;
+  color: #2d2f31;
+  margin: 0 0 8px 0;
+}
+
+.stat-box p {
+  color: #6a6f73;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.star {
+  color: #b4690e; 
+}

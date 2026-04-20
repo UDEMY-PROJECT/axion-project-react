@@ -1,0 +1,93 @@
+.hero-section {
+  background-color: #f7f9fa; /* Udemy's light gray background */
+  padding: 64px 24px;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-text-content {
+  flex: 1;
+  max-width: 500px;
+}
+
+.breadcrumb {
+  color: #a435f0; /* Udemy purple */
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.hero-text-content h1 {
+  font-size: 3rem;
+  color: #2d2f31;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+}
+
+.hero-text-content p {
+  font-size: 1.2rem;
+  color: #2d2f31;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+.cta-button {
+  background-color: #a435f0;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+.cta-button:hover {
+  background-color: #8710d8;
+}
+
+.terms-text {
+  font-size: 0.8rem !important;
+  color: #6a6f73 !important;
+  margin-bottom: 0 !important;
+}
+
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.placeholder-hero-image {
+  width: 400px;
+  height: 400px;
+  background-color: #e4e8eb;
+  border: 2px dashed #d1d7dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6a6f73;
+  font-weight: bold;
+}
+/* Keep your existing Hero.css styles, and ADD/REPLACE the image container part with this: */
+
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-image-actual {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}

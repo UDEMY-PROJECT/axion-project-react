@@ -1,0 +1,14 @@
+
+.udemy-app-container {
+  background-color: #ffffff; /* Forces white background */
+  color: #2d2f31; /* Udemy's dark gray text */
+  min-height: 100vh;
+  /* A good fallback stack since we don't have Udemy's custom font */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+/* Ensure default link styling doesn't ruin your buttons/tabs */
+a {
+  text-decoration: none;
+  color: inherit;
+}

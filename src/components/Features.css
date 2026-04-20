@@ -1,0 +1,52 @@
+.features-container {
+  max-width: 1200px; /* Changed from 1000px to match the Stats container */
+  margin: 80px auto;
+  padding: 0 20px;
+}
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 80px; /* Space between the rows */
+}
+
+/* This simple class flips the layout! */
+.feature-row.reversed {
+  flex-direction: row-reverse;
+}
+
+.feature-text {
+  flex: 1;
+}
+
+.feature-label {
+  color: #6a6f73;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.feature-text h2 {
+  font-size: 2rem;
+  color: #2d2f31;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.feature-text p {
+  font-size: 1.1rem;
+  color: #2d2f31;
+  line-height: 1.5;
+}
+
+.feature-image {
+  flex: 1;
+}
+
+.feature-image img {
+  width: 100%;
+  height: auto;
+  display: block; /* Removes weird spacing under images */
+}

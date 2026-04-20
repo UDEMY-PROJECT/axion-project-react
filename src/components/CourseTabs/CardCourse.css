@@ -1,0 +1,65 @@
+/* Update your existing CourseCard.css to match this new layout */
+.course-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  /* Shows 2 cards per row in the grid area */
+  width: calc(50% - 12px); 
+  min-width: 200px;
+  margin-bottom: 24px;
+}
+
+.course-title {
+  font-size: 1rem;
+  color: #2d2f31;
+  margin: 0 0 4px 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.instructor-name {
+  font-size: 0.75rem;
+  color: #6a6f73;
+  margin: 0 0 4px 0;
+}
+
+.student-count {
+  font-size: 0.75rem;
+  color: #6a6f73;
+  margin: 0 0 4px 0;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.rating-num {
+  font-weight: 700;
+  color: #b4690e; 
+}
+
+.stars {
+  color: #b4690e;
+  font-size: 0.7rem;
+}
+
+.review-count {
+  color: #6a6f73;
+  font-size: 0.75rem;
+}
+
+.premium-badge {
+  background-color: #5624d0;
+  color: white;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  border-radius: 2px;
+}

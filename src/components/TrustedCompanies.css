@@ -1,0 +1,33 @@
+.trusted-wrapper {
+  width: 100%;
+  background-color: #f7f9fa; /* Udemy's light gray */
+  padding: 64px 0;
+}
+
+.trusted-container {
+  max-width: 1200px; /* Matches your other containers! */
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.trusted-container h2 {
+  color: #6a6f73; /* A muted gray text color */
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+.logo-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows logos to wrap on smaller screens */
+  gap: 20px;
+}
+
+.company-logo {
+  height: 38px; /* Keeps all logos a consistent height */
+  max-width: 115px;
+  object-fit: contain;
+}
