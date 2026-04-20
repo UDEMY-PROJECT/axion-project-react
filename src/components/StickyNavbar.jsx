@@ -28,7 +28,7 @@ const StickyNavbar = () => {
         
         <div className="sticky-left">
           {/* Using a text approximation for the logo until you drop an SVG in */}
-          <span className="udemy-logo-text">ûdemy</span>
+          <span className="udemy-logo-text">Axion</span>
           <span className="plan-title">Personal Plan</span>
         </div>
 
