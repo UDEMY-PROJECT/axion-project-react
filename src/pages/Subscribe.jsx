@@ -1,13 +1,32 @@
 import React from 'react';
+import StickyNavbar from '../components/StickyNavbar'; // <-- Import it here
+import TopBanner from '../components/TopBanner';
+import Stats from '../components/Stats';
+import TrustedCompanies from '../components/TrustedCompanies'; // <-- Import the new component
+import Features from '../components/Features';
+import Tabs from '../components/CourseTabs/Tabs';
+import Pricing from '../components/Pricing';
+import FAQ from '../components/FAQ';
+import '../Subscribe.css';
 
-const Subscribe = () => {
+
+function  Subscribe() {
   return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
-      <h1>Subscribe to Axion</h1>
-      <p>Subscribe to our newsletter and stay updated with the latest courses and certifications.</p>
-      {/* Add subscription form or content here */}
+    <div className="udemy-app-container">
+    
+      <StickyNavbar /> {/* <-- Drop it here */}
+      
+      <main>
+        <TopBanner/>
+        <Stats />     
+        <TrustedCompanies /> {/* <-- Add it right here */}
+        <Features />  
+        <Tabs />
+        <Pricing />
+        <FAQ />
+      </main>
     </div>
   );
-};
+}
 
 export default Subscribe;
