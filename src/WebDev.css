@@ -1,168 +1,306 @@
- /* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-
-body {
-  color: #1c1d1f; 
-  background-color: #ffffff;
-}
-
-.container {
-  max-width: 1340px;
+.webdev-page .container {
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 24px 20px;
 }
 
-.page-title {
+.webdev-page .sub-navbar {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  padding: 12px 0;
+  border-bottom: 1px solid #d1d7dc;
+  margin-bottom: 24px;
+  color: #6a6f73;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.webdev-page .sub-navbar-item {
+  cursor: pointer;
+  padding-bottom: 12px;
+  transition: color 0.2s ease-in-out, border-bottom 0.2s ease-in-out, font-weight 0.2s ease;
+  color: #6a6f73;
+}
+
+.webdev-page .sub-navbar-item.active {
+  color: #1c1d1f;
+  border-bottom: 2px solid #1c1d1f;
+  font-weight: 700;
+}
+
+.webdev-page .breadcrumb {
+  font-size: 14px;
+  color: #5624d0;
+  font-weight: bold;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.webdev-page .breadcrumb .separator {
+  color: #6a6f73;
+}
+
+.webdev-page .page-title {
   font-size: 32px;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
-.main-layout {
+.webdev-page .hero-banner {
+  background-color: #f7f9fa;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  border: 1px solid #d1d7dc;
+  margin-bottom: 48px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 18px;
+}
+
+.webdev-page .hero-banner span {
+  min-width: 0;
+}
+
+.webdev-page .info-banner {
+  border: 1px solid #d1d7dc;
+  padding: 18px 20px;
   display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  font-weight: bold;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.webdev-page .main-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
   gap: 32px;
+  align-items: flex-start;
 }
 
-.sidebar {
-  width: 250px;
-  flex-shrink: 0;
+.webdev-page .sidebar {
+  width: 100%;
+  max-width: 280px;
 }
 
-.content-area {
-  flex-grow: 1;
-}  */
+.webdev-page .content-area {
+  width: 100%;
+}
 
-/* MICRO-TWEAK APPLIED: Removed border-bottom */
-.list-controls {
+.webdev-page .list-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
-  border-bottom: none; 
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
-/* MICRO-TWEAK APPLIED: Adjusted padding and font-size */
-.sort-dropdown {
+.webdev-page .filter-action-group {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.webdev-page .filter-button {
+  border: 1px solid #1c1d1f;
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 700;
+  background: white;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 10px;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.webdev-page .filter-button:hover {
+  background-color: #f7f9fa;
+  transform: translateY(-1px);
+}
+
+.webdev-page .sort-dropdown {
   padding: 12px 16px;
   border: 1px solid #1c1d1f;
   font-weight: 700;
   background: white;
   cursor: pointer;
   font-size: 16px;
+  border-radius: 10px;
 }
 
-.course-card {
-  display: flex;
+.webdev-page .result-count {
+  font-size: 16px;
+  font-weight: 700;
+  color: #6a6f73;
+}
+
+.webdev-page .course-list {
+  display: grid;
   gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid #d1d7dc;
-  cursor: pointer;
 }
 
-.course-image {
-  width: 260px;
+.webdev-page .empty-state {
+  padding: 48px;
+  text-align: center;
+  color: #6a6f73;
+  font-size: 19px;
+}
+
+.webdev-page .course-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 22px;
+  border: 1px solid #d1d7dc;
+  border-radius: 18px;
+  background: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+}
+
+.webdev-page .course-card:hover {
+  background-color: #f7f9fa;
+  transform: translateY(-1px);
+}
+
+.webdev-page .course-image {
+  width: 240px;
   height: 145px;
   object-fit: cover;
+  border-radius: 16px;
   border: 1px solid #d1d7dc;
+  flex-shrink: 0;
 }
 
-.course-info {
+.webdev-page .course-info {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  min-width: 0;
 }
 
-/* MICRO-TWEAK APPLIED: Tightened line-height for all titles */
-.course-title, .carousel-title {
-  font-size: 19px;
+.webdev-page .course-title,
+.webdev-page .carousel-title {
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 4px;
   color: #1c1d1f;
   line-height: 1.2;
 }
 
-.carousel-title {
-  font-size: 16px; /* Overrides the 19px for the smaller top cards */
+.webdev-page .carousel-title {
+  font-size: 16px;
 }
 
-.course-description {
-  font-size: 16px;
-  color: #1c1d1f;
+.webdev-page .course-description {
+  font-size: 15px;
+  color: #4d4f52;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.webdev-page .course-instructor {
+  font-size: 13px;
+  color: #6a6f73;
   margin-bottom: 8px;
 }
 
-.course-instructor {
-  font-size: 12px;
-  color: #6a6f73;
-  margin-bottom: 4px;
-}
-
-.course-stats {
-  font-size: 12px;
+.webdev-page .course-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
   color: #6a6f73;
 }
 
-.course-price {
-  font-size: 19px;
-  font-weight: 700;
+.webdev-page .course-price {
   min-width: 100px;
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #1c1d1f;
+  font-weight: 700;
 }
 
-.bestseller-badge {
+.webdev-page .course-price div:first-child {
+  font-size: 20px;
+}
+
+.webdev-page .course-price div:last-child {
+  font-size: 14px;
+  color: #6a6f73;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.webdev-page .bestseller-badge {
   background-color: #eceb98;
   padding: 4px 8px;
   font-size: 12px;
   font-weight: 700;
   display: inline-block;
   margin-top: 8px;
+  border-radius: 10px;
 }
 
-/* --- NEW STYLES FOR TOP SECTIONS --- */
-
-.carousel-container {
+.webdev-page .carousel-container {
   display: flex;
   gap: 16px;
-  overflow-x: hidden;
+  overflow-x: auto;
   margin-bottom: 48px;
+  padding-bottom: 4px;
 }
 
-.carousel-card {
+.webdev-page .carousel-card {
   width: 260px;
   flex-shrink: 0;
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #d1d7dc;
+  background: white;
 }
 
-.carousel-image {
+.webdev-page .carousel-image {
   width: 100%;
   height: 145px;
   object-fit: cover;
-  border: 1px solid #d1d7dc;
-  margin-bottom: 8px;
 }
 
-.section-title {
+.webdev-page .section-title {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 24px;
 }
 
-/* MICRO-TWEAK APPLIED: Reduced gap to 12px */
-.topics-grid {
+.webdev-page .topics-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px; 
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
   margin-bottom: 48px;
 }
 
-.topic-pill {
+.webdev-page .topic-pill {
   border: 1px solid #1c1d1f;
   padding: 16px;
   text-align: center;
@@ -171,46 +309,55 @@ body {
   cursor: pointer;
   background-color: white;
   transition: background-color 0.2s;
+  border-radius: 14px;
 }
 
-.topic-pill:hover {
+.webdev-page .topic-pill:hover {
   background-color: #f7f9fa;
 }
 
-/* --- FINAL TOUCHES: HOVER EFFECTS --- */
-
-.course-card {
-  transition: background-color 0.2s ease-in-out;
+.webdev-page .course-card:hover .course-image,
+.webdev-page .carousel-card:hover .carousel-image {
+  filter: brightness(0.93);
 }
 
-.course-card:hover {
-  background-color: #f7f9fa; 
-}
-
-.course-image, .carousel-image {
-  transition: filter 0.2s ease-in-out;
-}
-
-.course-card:hover .course-image,
-.carousel-card:hover .carousel-image {
-  filter: brightness(0.85);
-}
-
-.course-card:hover .course-title,
-.carousel-card:hover .carousel-title {
-  color: #5624d0; 
-}
-.course-instructor {
-  font-size: 13px; /* Slightly larger like original */
-  color: #6a6f73;
-}
-
-.course-stats span {
-  font-size: 12px;
-}
-
-/* Ensure the purple link color matches exactly */
-a, .breadcrumb-link {
+.webdev-page .course-card:hover .course-title,
+.webdev-page .carousel-card:hover .carousel-title {
   color: #5624d0;
-  text-decoration: none;
+}
+
+.webdev-page .pagination {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 48px;
+  align-items: center;
+  font-weight: 700;
+  flex-wrap: wrap;
+}
+
+.webdev-page .pagination button {
+  padding: 8px 12px;
+  border: 1px solid #1c1d1f;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.webdev-page .pagination button:hover:not(:disabled) {
+  background: #f7f9fa;
+  transform: translateY(-1px);
+}
+
+.webdev-page .pagination span {
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+}
+
+.webdev-page .pagination span.active {
+  color: #1c1d1f;
+  border-bottom: 2px solid #1c1d1f;
+  padding-bottom: 4px;
 }

@@ -94,35 +94,35 @@ const CourseDirectory = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="container">
-      {/* DYNAMIC SUB-NAVBAR */}
-      <div style={{ display: 'flex', gap: '20px', fontSize: '13px', padding: '12px 0', borderBottom: '1px solid #d1d7dc', marginBottom: '24px', color: '#6a6f73', overflowX: 'auto', whiteSpace: 'nowrap' }}>
-        {[
-          'Development', 'Web Development', 'Data Science', 'Mobile Development', 
-          'Programming Languages', 'Game Development', 'Database Design', 
-          'Software Testing', 'Software Engineering'
-        ].map((cat) => (
-          <span 
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            style={{ 
-              color: activeCategory === cat ? '#1c1d1f' : '#6a6f73', 
-              borderBottom: activeCategory === cat ? '2px solid #1c1d1f' : 'none', 
-              fontWeight: activeCategory === cat ? 'bold' : 'normal', 
-              paddingBottom: '12px', 
-              cursor: 'pointer',
-              transition: 'all 0.2s ease-in-out'
-            }}
-          >
-            {cat}
-          </span>
-        ))}
-      </div>
+    <div className="webdev-page">
+      <div className="container">
+        {/* DYNAMIC SUB-NAVBAR */}
+        <div className="sub-navbar">
+          {[
+            'Development',
+            'Web Development',
+            'Data Science',
+            'Mobile Development',
+            'Programming Languages',
+            'Game Development',
+            'Database Design',
+            'Software Testing',
+            'Software Engineering',
+          ].map(cat => (
+            <span
+              key={cat}
+              className={activeCategory === cat ? 'sub-navbar-item active' : 'sub-navbar-item'}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {cat}
+            </span>
+          ))}
+        </div>
 
-      <div style={{ fontSize: '14px', color: '#5624d0', fontWeight: 'bold', marginBottom: '16px' }}>
-        <span style={{ cursor: 'pointer' }}>Development</span>
-        <span style={{ color: '#6a6f73', margin: '0 8px' }}>&gt;</span>
-        <span style={{ cursor: 'pointer' }}>Web Development</span>
+      <div className="breadcrumb">
+        <span>Development</span>
+        <span className="separator">›</span>
+        <span>Web Development</span>
       </div>
 
       <h1 className="page-title">Web Development Courses</h1>
@@ -130,7 +130,7 @@ const CourseDirectory = () => {
       <h2 className="section-title">Courses to get you started</h2>
       <FeaturedCarousel />
 
-      <div style={{ backgroundColor: '#f7f9fa', padding: '24px', display: 'flex', justifyContent: 'space-around', border: '1px solid #d1d7dc', marginBottom: '48px', fontWeight: 'bold', fontSize: '16px' }}>
+      <div className="hero-banner">
         <span>🎥 Learn on your schedule</span>
         <span>💼 Choose from 210,000 online courses</span>
         <span>♾️ Enjoy lifetime access to courses</span>
@@ -140,9 +140,9 @@ const CourseDirectory = () => {
       <PopularInstructors />
 
       <h2 className="section-title" style={{ marginTop: '48px' }}>All Web Development courses</h2>
-      <div style={{ border: '1px solid #d1d7dc', padding: '16px', display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px', fontWeight: 'bold' }}>
-        <span style={{ fontSize: '24px' }}>🛡️</span>
-        Not sure? All courses have a 30-day money-back guarantee
+      <div className="info-banner">
+        <span>🛡️</span>
+        <span>Not sure? All courses have a 30-day money-back guarantee</span>
       </div>
 
       <div className="main-layout">
@@ -164,18 +164,18 @@ const CourseDirectory = () => {
         )}
 
         <main className="content-area">
-          <div className="list-controls" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-            <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-              <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} style={{ border: '1px solid #1c1d1f', padding: '12px 16px', display: 'flex', gap: '8px', alignItems: 'center', fontWeight: 'bold', background: 'white', cursor: 'pointer', fontSize: '16px' }}>
+          <div className="list-controls">
+            <div className="filter-action-group">
+              <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="filter-button">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
                 Filter
               </button>
-              <select className="sort-dropdown" value={sortBy} onChange={(e) => setSortBy(e.target.value)} style={{ padding: '12px 16px', border: '1px solid #1c1d1f', fontWeight: '700', background: 'white', cursor: 'pointer', fontSize: '16px' }}>
+              <select className="sort-dropdown" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
                 <option value="Most Popular">Sort by: Most Popular</option>
                 <option value="Highest Rated">Sort by: Highest Rated</option>
               </select>
             </div>
-            <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#6a6f73' }}>
+            <span className="result-count">
               {processedCourses.length} results
             </span>
           </div>
@@ -193,16 +193,16 @@ const CourseDirectory = () => {
           </div>
 
           {totalPages > 1 && (
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginTop: '48px', alignItems: 'center', fontWeight: 'bold' }}>
-              <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1} style={{ padding: '8px 12px', border: '1px solid #1c1d1f', borderRadius: '50%', background: 'none', cursor: currentPage === 1 ? 'not-allowed' : 'pointer', opacity: currentPage === 1 ? 0.3 : 1 }}>
+            <div className="pagination">
+              <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
                 &lt;
               </button>
               {Array.from({ length: totalPages }, (_, index) => index + 1).map(num => (
-                <span key={num} onClick={() => paginate(num)} style={{ cursor: 'pointer', padding: '4px 8px', color: currentPage === num ? '#1c1d1f' : '#5624d0', borderBottom: currentPage === num ? '2px solid #1c1d1f' : 'none' }}>
+                <span key={num} className={currentPage === num ? 'active' : ''} onClick={() => paginate(num)}>
                   {num}
                 </span>
               ))}
-              <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} style={{ padding: '8px 12px', border: '1px solid #1c1d1f', borderRadius: '50%', background: 'none', cursor: currentPage === totalPages ? 'not-allowed' : 'pointer', opacity: currentPage === totalPages ? 0.3 : 1 }}>
+              <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
                 &gt;
               </button>
             </div>
@@ -210,7 +210,9 @@ const CourseDirectory = () => {
         </main>
       </div>
     </div>
+  </div>
   );
 };
+
 
 export default CourseDirectory;

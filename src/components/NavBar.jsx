@@ -4,6 +4,7 @@ import { navData } from "../data/navData";
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { CartContext } from "../context/CartContext";
+import { courses } from "../data/courses";
 import "./NavBar.css";
 import { FiShoppingCart } from "react-icons/fi";
 
@@ -15,6 +16,33 @@ const Navbar = () => {
   const { user, setUser } = useContext(AppContext);
   const { cart } = useContext(CartContext);
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showSearchResults, setShowSearchResults] = useState(false);
+
+  // Filter courses based on search query
+  const filteredCourses = courses.filter(course =>
+    course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    course.instructor.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    course.category.toLowerCase().includes(searchQuery.toLowerCase())
+  ).slice(0, 5); // Limit to 5 results
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    setShowSearchResults(value.length > 0);
+  };
+
+  const handleSearchResultClick = (course) => {
+    setSearchQuery("");
+    setShowSearchResults(false);
+    // For now, just navigate to home - you can add specific course pages later
+    navigate("/");
+  };
+
+  const handleSearchBlur = () => {
+    // Delay hiding results to allow clicking on them
+    setTimeout(() => setShowSearchResults(false), 150);
+  };
 
   const handleLogout = () => {
     setUser(null);
@@ -135,11 +163,40 @@ const Navbar = () => {
       </div>
 
       {/* CENTER */}
-      <input
-        type="text"
-        placeholder="Search for anything"
-        className="search"
-      />
+      <div className="searchWrapper">
+        <input
+          type="text"
+          placeholder="Search for anything"
+          className="search"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          onBlur={handleSearchBlur}
+          onFocus={() => searchQuery.length > 0 && setShowSearchResults(true)}
+        />
+
+        {showSearchResults && filteredCourses.length > 0 && (
+          <div className="searchResults">
+            {filteredCourses.map((course) => (
+              <div
+                key={course.id}
+                className="searchResultItem"
+                onClick={() => handleSearchResultClick(course)}
+              >
+                <img src={course.image} alt={course.title} className="searchResultImage" />
+                <div className="searchResultDetails">
+                  <h4 className="searchResultTitle">{course.title}</h4>
+                  <p className="searchResultInstructor">{course.instructor}</p>
+                  <div className="searchResultMeta">
+                    <span className="searchResultRating">⭐ {course.rating}</span>
+                    <span className="searchResultStudents">({course.students})</span>
+                    <span className="searchResultPrice">₹{course.price}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* RIGHT */}
       <div className="right">
