@@ -1,0 +1,216 @@
+ /* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  color: #1c1d1f; 
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.main-layout {
+  display: flex;
+  gap: 32px;
+}
+
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.content-area {
+  flex-grow: 1;
+}  */
+
+/* MICRO-TWEAK APPLIED: Removed border-bottom */
+.list-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: none; 
+}
+
+/* MICRO-TWEAK APPLIED: Adjusted padding and font-size */
+.sort-dropdown {
+  padding: 12px 16px;
+  border: 1px solid #1c1d1f;
+  font-weight: 700;
+  background: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.course-card {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #d1d7dc;
+  cursor: pointer;
+}
+
+.course-image {
+  width: 260px;
+  height: 145px;
+  object-fit: cover;
+  border: 1px solid #d1d7dc;
+}
+
+.course-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* MICRO-TWEAK APPLIED: Tightened line-height for all titles */
+.course-title, .carousel-title {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #1c1d1f;
+  line-height: 1.2;
+}
+
+.carousel-title {
+  font-size: 16px; /* Overrides the 19px for the smaller top cards */
+}
+
+.course-description {
+  font-size: 16px;
+  color: #1c1d1f;
+  margin-bottom: 8px;
+}
+
+.course-instructor {
+  font-size: 12px;
+  color: #6a6f73;
+  margin-bottom: 4px;
+}
+
+.course-stats {
+  font-size: 12px;
+  color: #6a6f73;
+}
+
+.course-price {
+  font-size: 19px;
+  font-weight: 700;
+  min-width: 100px;
+  text-align: right;
+}
+
+.bestseller-badge {
+  background-color: #eceb98;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+/* --- NEW STYLES FOR TOP SECTIONS --- */
+
+.carousel-container {
+  display: flex;
+  gap: 16px;
+  overflow-x: hidden;
+  margin-bottom: 48px;
+}
+
+.carousel-card {
+  width: 260px;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 145px;
+  object-fit: cover;
+  border: 1px solid #d1d7dc;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* MICRO-TWEAK APPLIED: Reduced gap to 12px */
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px; 
+  margin-bottom: 48px;
+}
+
+.topic-pill {
+  border: 1px solid #1c1d1f;
+  padding: 16px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: white;
+  transition: background-color 0.2s;
+}
+
+.topic-pill:hover {
+  background-color: #f7f9fa;
+}
+
+/* --- FINAL TOUCHES: HOVER EFFECTS --- */
+
+.course-card {
+  transition: background-color 0.2s ease-in-out;
+}
+
+.course-card:hover {
+  background-color: #f7f9fa; 
+}
+
+.course-image, .carousel-image {
+  transition: filter 0.2s ease-in-out;
+}
+
+.course-card:hover .course-image,
+.carousel-card:hover .carousel-image {
+  filter: brightness(0.85);
+}
+
+.course-card:hover .course-title,
+.carousel-card:hover .carousel-title {
+  color: #5624d0; 
+}
+.course-instructor {
+  font-size: 13px; /* Slightly larger like original */
+  color: #6a6f73;
+}
+
+.course-stats span {
+  font-size: 12px;
+}
+
+/* Ensure the purple link color matches exactly */
+a, .breadcrumb-link {
+  color: #5624d0;
+  text-decoration: none;
+}

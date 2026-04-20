@@ -1,0 +1,83 @@
+/* The Wrapper handles the fixed position and the slide animation */
+.sticky-nav-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  
+  /* A sharp drop shadow to separate it from the content below */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.08);
+  
+  /* z-index 1000 ensures it floats above ALL other elements on the page */
+  z-index: 1000; 
+  
+  /* Hide it off the top of the screen by default */
+  transform: translateY(-100%); 
+  
+  /* Smooth iOS-style drop-down animation */
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* When React adds this class, the bar slides down into view */
+.sticky-nav-wrapper.visible {
+  transform: translateY(0);
+}
+
+/* The Container keeps the content aligned with the rest of your page */
+.sticky-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Left Side Layout --- */
+.sticky-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.udemy-logo-text {
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: #2d2f31;
+  letter-spacing: -0.5px;
+}
+
+.plan-title {
+  color: #6a6f73;
+  font-size: 1rem;
+  border-left: 1px solid #d1d7dc; /* The vertical divider line */
+  padding-left: 16px;
+}
+
+/* --- Right Side Layout --- */
+.sticky-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sticky-price-text {
+  color: #6a6f73;
+  font-size: 0.85rem;
+}
+
+.sticky-btn {
+  background-color: #5624D0; /* Udemy Brand Purple */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.sticky-btn:hover {
+  background-color: #401b9c; /* Darkens slightly on hover */
+}

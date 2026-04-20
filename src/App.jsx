@@ -8,10 +8,10 @@ import ComparePlans from "./pages/ComparePlans";
 import "./App.css"
 import FooterLinks from "./components/FooterLinks";
 import FooterBottom from "./components/FooterBottom";
-
 import Login from "./pages/Login"; 
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+
 
 const App = () => {
   const location = useLocation();

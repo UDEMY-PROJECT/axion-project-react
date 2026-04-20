@@ -1,0 +1,192 @@
+.pricing-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f7f9fa;
+}
+
+.pricing-section h2 {
+  font-size: 2rem;
+  color: #2d2f31;
+  margin-bottom: 40px;
+}
+
+.pricing-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.price-card {
+  background: white;
+  border: 1px solid #d1d7dc;
+  border-radius: 8px;
+  width: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The Udemy purple highlight effect */
+.price-card.highlighted {
+  border-top: 8px solid #a435f0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-top {
+  padding: 24px;
+  border-bottom: 1px solid #d1d7dc;
+}
+
+.badge {
+  background-color: #eceb98;
+  color: #3d3c0a;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.card-top h3 {
+  margin: 10px 0 5px;
+  font-size: 1.5rem;
+}
+
+.card-bottom {
+  padding: 24px;
+}
+
+.price-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.sub-text {
+  color: #6a6f73;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.perks {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.perks li {
+  margin-bottom: 10px;
+  color: #2d2f31;
+  font-size: 0.95rem;
+}
+
+.btn-purple {
+  width: 100%;
+  background-color: #a435f0;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-purple:hover {
+  background-color: #8710d8;
+}.pricing-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f7f9fa;
+}
+
+.pricing-section h2 {
+  font-size: 2rem;
+  color: #2d2f31;
+  margin-bottom: 40px;
+}
+
+.pricing-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.price-card {
+  background: white;
+  border: 1px solid #d1d7dc;
+  border-radius: 8px;
+  width: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The Udemy purple highlight effect */
+.price-card.highlighted {
+  border-top: 8px solid #5624D0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-top {
+  padding: 24px;
+  border-bottom: 1px solid #d1d7dc;
+}
+
+.badge {
+  background-color: #eceb98;
+  color: #3d3c0a;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.card-top h3 {
+  margin: 10px 0 5px;
+  font-size: 1.5rem;
+}
+
+.card-bottom {
+  padding: 24px;
+}
+
+.price-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.sub-text {
+  color: #6a6f73;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.perks {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.perks li {
+  margin-bottom: 10px;
+  color: #2d2f31;
+  font-size: 0.95rem;
+}
+
+.btn-purple {
+  width: 100%;
+  background-color: #5624D0;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  
+  /* ADDED: The 8px border-radius to match the rest of your app! */
+  border-radius: 8px; 
+}
+
+.btn-purple:hover {
+  background-color: #8710d8;
+}
